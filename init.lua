@@ -1068,5 +1068,10 @@ vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>SnipRun', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', { silent = true })
 vim.keymap.set('n', '<C-b>', '<Cmd>Neotree toggle<CR>')
+vim.keymap.set('n', '<leader>r', function()
+  -- Open a horizontal split and make it 10 lines tall initially
+  -- (adjust 10 to your preferred height)
+  vim.cmd('10sp term://python ' .. vim.fn.expand '%:p')
+end, { noremap = true, silent = true, desc = 'Run Python (hsplit, 10 lines)' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
